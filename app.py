@@ -179,8 +179,8 @@ def fetch_player_info(uid):
             data = response.json()
             account_info = data.get("playerData", {})
             return {
-                "Level": account_info.get("level", {level}),
-                "Region": account_info.get("region", {region}),
+                "Level": account_info.get("level", 'NA'),
+                "Region": account_info.get("region", 'NA'),
                 "ReleaseVersion": account_info.get("releaseVersion", "1.0")
             }
         else:
@@ -188,7 +188,7 @@ def fetch_player_info(uid):
             return {"Level": "NA", "Region": "NA", "ReleaseVersion": "NA"}
     except Exception as e:
         app.logger.error(f"Error fetching player info from API: {e}")
-        return {"Level": {level}, "Region": {region}, "ReleaseVersion": "1.0"}
+        return {"Level": 'NA', "Region": 'NA', "ReleaseVersion": "1.0"}
 
 @app.route('/like', methods=['GET'])
 def handle_requests():
