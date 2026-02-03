@@ -173,7 +173,7 @@ def decode_protobuf(binary):
 
 def fetch_player_info(uid):
     try:
-        url = f"https://jamiinfoapi.vercel.app/player-info?uid={uid}"
+        url = f"https://clientbp.ggblueshark.com/GetPlayerPersonalShow}"
         response = requests.get(url, timeout=5)
         if response.status_code == 200:
             data = response.json()
