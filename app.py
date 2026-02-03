@@ -173,7 +173,7 @@ def decode_protobuf(binary):
 
 def fetch_player_info(uid):
     try:
-        url = f"https://danger-info-alpha.vercel.app/accinfo?uid={uid}&key=DANGERxINFO}"
+        url = f"https://danger-info-alpha.vercel.app/accinfo?uid={uid}&key=DANGERxINFO"
         response = requests.get(url, timeout=5)
         if response.status_code == 200:
             data = response.json()
