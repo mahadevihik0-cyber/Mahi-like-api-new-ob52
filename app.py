@@ -179,16 +179,16 @@ def fetch_player_info(uid):
             data = response.json()
             account_info = data.get("playerData", {})
             return {
-                "Level": account_info.get("level", "NA"),
-                "Region": account_info.get("region", "NA"),
-                "ReleaseVersion": account_info.get("releaseVersion", "NA")
+                "Level": account_info.get("level", {level}),
+                "Region": account_info.get("region", {region}),
+                "ReleaseVersion": account_info.get("releaseVersion", "1.0")
             }
         else:
             app.logger.error(f"Player info API failed with status code: {response.status_code}")
             return {"Level": "NA", "Region": "NA", "ReleaseVersion": "NA"}
     except Exception as e:
         app.logger.error(f"Error fetching player info from API: {e}")
-        return {"Level": "NA", "Region": "NA", "ReleaseVersion": "NA"}
+        return {"Level": {level}, "Region": {region}, "ReleaseVersion": "1.0"}
 
 @app.route('/like', methods=['GET'])
 def handle_requests():
