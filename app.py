@@ -173,7 +173,7 @@ def decode_protobuf(binary):
 
 def fetch_player_info(uid):
     try:
-        url = f"https://danger-info-alpha.vercel.app/accinfo?uid={uid}&key=DANGERxINFO"
+        url = f"https://mahi-info-1.vercel.app/player-info?region={region}&uid={uid}"
         response = requests.get(url, timeout=5)
         if response.status_code == 200:
             data = response.json()
@@ -207,8 +207,8 @@ def handle_requests():
     try:
         def process_request():
             player_info = fetch_player_info(uid)
-            region = player_info["region"]
-            level = player_info["level"]
+            region = player_info["Region"]
+            level = player_info["Level"]
             release_version = player_info["ReleaseVersion"]
 
             if region != "NA":
