@@ -207,8 +207,8 @@ def handle_requests():
     try:
         def process_request():
             player_info = fetch_player_info(uid)
-            region = player_info["Region"]
-            level = player_info["Level"]
+            region = player_info["region"]
+            level = player_info["level"]
             release_version = player_info["ReleaseVersion"]
 
             if region != "NA":
